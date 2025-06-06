@@ -3,7 +3,7 @@
   "id": "invisibilityparticles",
   "version": "1.2.0",
   "name": "Invisibility Particles Mod",
-  "description": "Увеличивает количество частиц при невидимости с настройкой через GUI.",
+  "description": "Мод для настройки количества частиц невидимости через GUI",
   "authors": ["gptonline.ai"],
   "license": "MIT",
   "environment": "client",

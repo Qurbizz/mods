@@ -31,15 +31,17 @@ public class ModConfig {
                 saveConfig();
             }
         } catch (Exception e) {
-            particleAmount = 20; // fallback
+            particleAmount = 20;
         }
     }
 
     public static void saveConfig() {
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            ModConfig current = new ModConfig();
+            current.particleAmount = particleAmount;
             try (FileWriter writer = new FileWriter(configFile)) {
-                gson.toJson(new ModConfig(), writer);
+                gson.toJson(current, writer);
             }
         } catch (IOException e) {
             e.printStackTrace();
