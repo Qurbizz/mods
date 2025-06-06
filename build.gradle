@@ -23,6 +23,16 @@ loom {
     splitEnvironmentSourceSets()
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+jar {
+    archiveBaseName.set("invisibilityparticles")
+    archiveVersion.set("1.2.0")
+    destinationDirectory.set(file("$buildDir/libs"))
+}
+
 java {
     withSourcesJar()
 }
