@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: temurin
@@ -23,8 +25,8 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Upload mod
+      - name: Upload compiled mod
         uses: actions/upload-artifact@v3
         with:
           name: invisibility_particles_mod
-          path: build/libs/*.jar
+          path: build/libs/
