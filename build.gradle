@@ -1,12 +1,6 @@
 plugins {
     id 'fabric-loom' version '1.3-SNAPSHOT'
-    id 'java'                         // 🔹 Добавь это
-    id 'application'                 // 🔹 И это, если хочешь jar с main
-    id 'maven-publish'
-}
-
-plugins {
-    id 'fabric-loom' version '1.3-SNAPSHOT'
+    id 'java'
     id 'maven-publish'
 }
 
@@ -15,6 +9,7 @@ version = '1.2.0'
 
 repositories {
     mavenCentral()
+    maven { url "https://maven.fabricmc.net/" }
 }
 
 dependencies {
@@ -26,4 +21,8 @@ dependencies {
 
 loom {
     splitEnvironmentSourceSets()
+}
+
+java {
+    withSourcesJar()
 }
