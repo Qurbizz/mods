@@ -24,6 +24,11 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
+- name: Список файлов после сборки
+  run: |
+    echo "Содержимое папки build/libs:"
+    ls -l build/libs || echo "Папка отсутствует или пуста"
+
       - name: Upload compiled mod
         uses: actions/upload-artifact@v4
         with:
