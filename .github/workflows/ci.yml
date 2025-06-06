@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -24,13 +25,15 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-- name: Список файлов после сборки
-  run: |
-    echo "Содержимое папки build/libs:"
-    ls -l build/libs || echo "Папка отсутствует или пуста"
+      - name: List files in build/libs
+        run: |
+          echo "Checking contents of build/libs:"
+          ls -l build/libs || echo "Directory does not exist or is empty"
 
       - name: Upload compiled mod
         uses: actions/upload-artifact@v4
         with:
           name: invisibility_particles_mod
           path: build/libs/
+
+
